@@ -1,7 +1,7 @@
 let rec;
 let speech;
-let ball = [];
-let t = [];
+let ball = []; // for array object (Ball)
+let t = [];    // for array object (Triangle)
 
 rec = new p5.SpeechRec();
 speech = new p5.Speech();
@@ -23,6 +23,8 @@ function showResult() {
 	if (rec.resultString === 'triangle') {
 		t.push(new Triangle());
 	}
+	// add resultString for other shape here...
+	
 	if (rec.resultString === 'clear' || rec.resultString === 'reset') {
 		ball = []
 		t = []
