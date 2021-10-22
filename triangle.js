@@ -1,11 +1,12 @@
 class Triangle {
   constructor() {
-    this.pos = createVector(random(width), 0);
+    this.pos = createVector(random(width)-100, 0);
     this.gravity = 0.9;
     this.velocity = 0.5;
     this.height = random(100, 150);
     this.base = random(100, 150);
-    this.color = color(250, 100, 100, 200);
+    this.color = color(random(100, 255), random(100, 255), random(200, 255), 200);
+    this.massa = 10;
   }
 
   show() {
@@ -25,6 +26,7 @@ class Triangle {
 
   checkEdge() {
     if (this.pos.y > height) {
+      this.velocity = (this.velocity - this.massa) * -1;
       this.pos.y = height;
     }
   }

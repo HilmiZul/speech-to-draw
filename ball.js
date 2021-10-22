@@ -4,8 +4,9 @@ class Ball {
     this.r = random(80, 150);
     this.gravity = 0.9;
     this.velocity = 0.5;
-    this.color = color(255, 255, 255, 200);
-}
+    this.color = color(random(100, 255), random(100, 255), random(200, 255), 200);
+    this.massa = 10;
+  }
 
   show() {
     fill(this.color);
@@ -20,6 +21,7 @@ class Ball {
 
   checkEdge() {
     if (this.pos.y > height - this.r / 2) {
+      this.velocity = (this.velocity - this.massa) * -1;
       this.pos.y = height - this.r / 2;
     }
   }
