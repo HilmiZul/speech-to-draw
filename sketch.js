@@ -19,7 +19,7 @@ function setup() {
 	rec.onResult = showResult;
 	rec.start();
 
-  musik.play();
+  musik.loop();
 }
 
 function showResult() {
@@ -54,4 +54,12 @@ function draw() {
 		t[i].fallDown();
 		t[i].checkEdge();
 	}
+
+  if (rec.resultString === 'ball' || rec.resultString === 'triangle') {
+    // console.log('done.');
+  } else {
+    textAlign(CENTER);
+    textSize(30);
+    text('Say: "ball" or "triangle"', width/2, 100);
+  }
 }
