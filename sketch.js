@@ -2,16 +2,24 @@ let rec;
 let speech;
 let ball = []; // for array object (Ball)
 let t = [];    // for array object (Triangle)
+let musik;
 
 rec = new p5.SpeechRec();
 speech = new p5.Speech();
 rec.continuous = true;
+
+function preload() {
+  soundFormats('mp3', 'ogg');
+  musik = loadSound('assets/sound/backsound.mp3');
+}
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 
 	rec.onResult = showResult;
 	rec.start();
+
+  musik.play();
 }
 
 function showResult() {
